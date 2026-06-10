@@ -1,6 +1,6 @@
 ﻿namespace definitely_not_spotify
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         ///  Required designer variable.
@@ -37,6 +37,10 @@
             search = new TextBox();
             Discover = new ListBox();
             nowPlaying = new TextBox();
+            currentUser = new Label();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
             SuspendLayout();
             // 
             // button1
@@ -79,9 +83,9 @@
             // 
             Playlists.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             Playlists.FormattingEnabled = true;
-            Playlists.Location = new Point(0, 15);
+            Playlists.Location = new Point(0, 45);
             Playlists.Name = "Playlists";
-            Playlists.Size = new Size(137, 364);
+            Playlists.Size = new Size(137, 334);
             Playlists.TabIndex = 3;
             Playlists.SelectedIndexChanged += Playlists_SelectedIndexChanged;
             // 
@@ -89,18 +93,18 @@
             // 
             Numbers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             Numbers.FormattingEnabled = true;
-            Numbers.Location = new Point(143, 15);
+            Numbers.Location = new Point(143, 45);
             Numbers.Name = "Numbers";
-            Numbers.Size = new Size(143, 364);
+            Numbers.Size = new Size(143, 334);
             Numbers.TabIndex = 4;
             // 
             // Users
             // 
             Users.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             Users.FormattingEnabled = true;
-            Users.Location = new Point(681, 12);
+            Users.Location = new Point(681, 42);
             Users.Name = "Users";
-            Users.Size = new Size(120, 364);
+            Users.Size = new Size(120, 334);
             Users.TabIndex = 5;
             Users.SelectedIndexChanged += Users_SelectedIndexChanged;
             // 
@@ -132,11 +136,51 @@
             nowPlaying.Size = new Size(180, 45);
             nowPlaying.TabIndex = 8;
             // 
-            // Form1
+            // currentUser
+            // 
+            currentUser.AutoSize = true;
+            currentUser.Location = new Point(718, 408);
+            currentUser.Name = "currentUser";
+            currentUser.Size = new Size(70, 15);
+            currentUser.TabIndex = 9;
+            currentUser.Text = "current user";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(0, 27);
+            label1.Name = "label1";
+            label1.Size = new Size(49, 15);
+            label1.TabIndex = 10;
+            label1.Text = "Playlists";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(143, 27);
+            label2.Name = "label2";
+            label2.Size = new Size(56, 15);
+            label2.TabIndex = 11;
+            label2.Text = "Numbers";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(681, 18);
+            label3.Name = "label3";
+            label3.Size = new Size(35, 15);
+            label3.TabIndex = 12;
+            label3.Text = "Users";
+            // 
+            // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(currentUser);
             Controls.Add(nowPlaying);
             Controls.Add(Discover);
             Controls.Add(search);
@@ -146,8 +190,8 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "Main";
+            Text = "Main";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -163,5 +207,9 @@
         private TextBox search;
         private ListBox Discover;
         private TextBox nowPlaying;
+        private Label currentUser;
+        private Label label1;
+        private Label label2;
+        private Label label3;
     }
 }
