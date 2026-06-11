@@ -1,11 +1,23 @@
+using definitely_not_spotify.Models;
+
 namespace definitely_not_spotify
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
-        public Form1()
+        private User user;
+        private Client client;
+        public Main()
         {
             InitializeComponent();
             nowPlaying.Text = "Nothing is playing" + Environment.NewLine + "no artist";
+        }
+
+        public Main(Client client) : this()
+        {
+            this.client = client;
+            user = client.CurrentUser;
+            currentUser.Text = this.user.Username;
+            FillUsers();
         }
 
         private void play_pause_Click(object sender, EventArgs e)
@@ -36,6 +48,18 @@ namespace definitely_not_spotify
         private void search_KeyUp(object sender, KeyEventArgs e)
         {
 
+        }
+        private void FillUsers()
+        {
+            Users.Items.Clear();
+            Users.DisplayMember = "Username";
+            foreach (var user in client.Users)
+            {
+                if (user.Username != this.user.Username)
+                {
+                    Users.Items.Add(user);
+                }
+            }
         }
     }
 }
