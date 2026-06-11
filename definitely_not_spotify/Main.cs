@@ -55,7 +55,10 @@ namespace definitely_not_spotify
             Users.DisplayMember = "Username";
             foreach (var user in client.Users)
             {
-                Users.Items.Add(user);
+                if (user.Username != this.user.Username)
+                {
+                    Users.Items.Add(user);
+                }
             }
         }
     }
