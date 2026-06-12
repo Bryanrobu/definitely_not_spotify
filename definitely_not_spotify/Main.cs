@@ -62,12 +62,24 @@ namespace definitely_not_spotify
 
         private void skip_Click(object sender, EventArgs e)
         {
-
+            if (currentSong == null) return;
+            int index = client.Songs.IndexOf(currentSong);
+            if (index + 1 < client.Songs.Count)
+                currentSong = client.Songs[index + 1];
+            selectedSong = currentSong;
+            isPlaying = true;
+            UpdateNowPlaying();
         }
 
         private void return_Click(object sender, EventArgs e)
         {
-
+            if (currentSong == null) return;
+            int index = client.Songs.IndexOf(currentSong);
+            if (index - 1 > 0)
+                currentSong = client.Songs[index - 1];
+            selectedSong = currentSong;
+            isPlaying = true;
+            UpdateNowPlaying();
         }
 
         private void Playlists_SelectedIndexChanged(object sender, EventArgs e)
