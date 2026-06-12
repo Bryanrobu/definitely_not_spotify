@@ -42,6 +42,8 @@
             label2 = new Label();
             label3 = new Label();
             logout = new Button();
+            add_playlist = new Button();
+            delete_playlist = new Button();
             SuspendLayout();
             // 
             // button1
@@ -86,7 +88,7 @@
             Playlists.FormattingEnabled = true;
             Playlists.Location = new Point(0, 45);
             Playlists.Name = "Playlists";
-            Playlists.Size = new Size(137, 334);
+            Playlists.Size = new Size(137, 304);
             Playlists.TabIndex = 3;
             Playlists.SelectedIndexChanged += Playlists_SelectedIndexChanged;
             // 
@@ -96,7 +98,7 @@
             Numbers.FormattingEnabled = true;
             Numbers.Location = new Point(143, 45);
             Numbers.Name = "Numbers";
-            Numbers.Size = new Size(143, 334);
+            Numbers.Size = new Size(143, 304);
             Numbers.TabIndex = 4;
             // 
             // Users
@@ -183,11 +185,31 @@
             logout.UseVisualStyleBackColor = true;
             logout.Click += logout_Click;
             // 
+            // add_playlist
+            // 
+            add_playlist.Location = new Point(0, 355);
+            add_playlist.Name = "add_playlist";
+            add_playlist.Size = new Size(137, 23);
+            add_playlist.TabIndex = 14;
+            add_playlist.Text = "Add playlist";
+            add_playlist.UseVisualStyleBackColor = true;
+            // 
+            // delete_playlist
+            // 
+            delete_playlist.Location = new Point(143, 355);
+            delete_playlist.Name = "delete_playlist";
+            delete_playlist.Size = new Size(143, 23);
+            delete_playlist.TabIndex = 15;
+            delete_playlist.Text = "Delete playlist";
+            delete_playlist.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(delete_playlist);
+            Controls.Add(add_playlist);
             Controls.Add(logout);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -224,5 +246,7 @@
         private Label label2;
         private Label label3;
         private Button logout;
+        private Button add_playlist;
+        private Button delete_playlist;
     }
 }
