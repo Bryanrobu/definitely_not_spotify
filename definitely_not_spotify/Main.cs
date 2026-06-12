@@ -18,6 +18,7 @@ namespace definitely_not_spotify
             user = client.CurrentUser;
             currentUser.Text = this.user.Username;
             FillUsers();
+            FillDiscover();
         }
 
         private void play_pause_Click(object sender, EventArgs e)
@@ -60,6 +61,23 @@ namespace definitely_not_spotify
                     Users.Items.Add(user);
                 }
             }
+        }
+
+        private void FillDiscover()
+        {
+            Discover.Items.Clear();
+            Discover.DisplayMember = "Display";
+            foreach (var song in client.Songs)
+            {
+                Discover.Items.Add(song);
+            }
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            client.Logout();
+            new Login(client).Show();
+            Close();
         }
     }
 }

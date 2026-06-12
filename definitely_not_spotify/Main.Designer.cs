@@ -41,6 +41,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            logout = new Button();
             SuspendLayout();
             // 
             // button1
@@ -75,7 +76,7 @@
             button3.Name = "button3";
             button3.Size = new Size(109, 45);
             button3.TabIndex = 2;
-            button3.Text = "Return";
+            button3.Text = "Previous";
             button3.UseVisualStyleBackColor = true;
             button3.Click += return_Click;
             // 
@@ -139,7 +140,7 @@
             // currentUser
             // 
             currentUser.AutoSize = true;
-            currentUser.Location = new Point(718, 408);
+            currentUser.Location = new Point(718, 393);
             currentUser.Name = "currentUser";
             currentUser.Size = new Size(70, 15);
             currentUser.TabIndex = 9;
@@ -172,11 +173,22 @@
             label3.TabIndex = 12;
             label3.Text = "Users";
             // 
+            // logout
+            // 
+            logout.Location = new Point(718, 415);
+            logout.Name = "logout";
+            logout.Size = new Size(75, 23);
+            logout.TabIndex = 13;
+            logout.Text = "Log out";
+            logout.UseVisualStyleBackColor = true;
+            logout.Click += logout_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(logout);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -211,5 +223,6 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private Button logout;
     }
 }

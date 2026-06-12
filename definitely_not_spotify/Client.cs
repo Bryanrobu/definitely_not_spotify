@@ -6,10 +6,13 @@ namespace definitely_not_spotify
     {
         public List<User> Users { get; }
         public User CurrentUser { get; private set; }
+        public List<Song> Songs { get; }
 
         public Client()
         {
             Users = new List<User>();
+            Songs = new List<Song>();
+            Songs.AddRange(TestData.GetSongs());
         }
 
         public User CreateUser(string username)
@@ -38,8 +41,7 @@ namespace definitely_not_spotify
 
         public void Logout()
         {
-            new Login(this).Show();
-            new Main().Close();
+            CurrentUser = null;
         }
     }
 }
