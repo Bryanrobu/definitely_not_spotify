@@ -1,19 +1,23 @@
+using System.Security.Cryptography.X509Certificates;
+
 namespace definitely_not_spotify.Models
 {
     public class Song
     {
         public string Title { get; set; }
-        public List<Artist> Artists { get; set; }
+        public string Artists { get; set; }
         public Genre Genre { get; set; }
 
-        public Song(string title, Genre genre)
+        public string Display => $"{Title} - {Artists}";
+
+        public Song(string title, Genre genre, string artists)
         {
             Title = title;
             Genre = genre;
-            Artists = new List<Artist>();
+            Artists = artists;
         }
 
-        public List<Artist> GetArtists() => Artists;
+        public string GetArtists() => Artists;
 
         public string GetTitle() => Title;
 

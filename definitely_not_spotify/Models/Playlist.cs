@@ -30,9 +30,14 @@ namespace definitely_not_spotify.Models
 
         }
 
-        public void DeletePlaylist(Playlist p)
+        public string GetName()
         {
-            CreatedBy.Playlists.Remove(p);
+            return Name;
+        }
+
+        public override string ToString()
+        {
+            return GetName();
         }
     }
 }
