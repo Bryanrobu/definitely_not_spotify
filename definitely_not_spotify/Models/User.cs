@@ -13,13 +13,6 @@ namespace definitely_not_spotify.Models
             Friends = new List<User>();
         }
 
-        public Playlist CreatePlaylist(string name)
-        {
-            var playlist = new Playlist(name, this);
-            Playlists.Add(playlist);
-            return playlist;
-        }
-
         public void AddFriend(User u) => Friends.Add(u);
 
         public void RemoveFriend(User u) => Friends.Remove(u);

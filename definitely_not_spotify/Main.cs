@@ -19,6 +19,7 @@ namespace definitely_not_spotify
             currentUser.Text = this.user.Username;
             FillUsers();
             FillDiscover();
+            FillPlaylists();
         }
 
         private void play_pause_Click(object sender, EventArgs e)
@@ -73,11 +74,57 @@ namespace definitely_not_spotify
             }
         }
 
+        private void FillPlaylists()
+        {
+            Playlists.Items.Clear();
+            foreach (var playlist in user.Playlists)
+            {
+                Playlists.Items.Add(playlist);
+            }
+        }
+
         private void logout_Click(object sender, EventArgs e)
         {
             client.Logout();
             new Login(client).Show();
             Close();
+        }
+
+        private void add_playlist_Click(object sender, EventArgs e)
+        {
+            using (var form = new CreatePlaylistForm())
+            {
+                if (form.ShowDialog(this) == DialogResult.OK)
+                {
+                    var playlist = client.CreatePlaylist(form.PlaylistName);
+
+                    if (playlist == null)
+                    {
+                        MessageBox.Show("Geef een geldige naam op.");
+                        return;
+                    }
+
+                    FillPlaylists();
+                }
+            }
+        }
+
+        private void delete_playlist_Click(object sender, EventArgs e)
+        {
+            if (Playlists.SelectedItem == null)
+            {
+                MessageBox.Show("Selecteer eerst een playlist.");
+                return;
+            }
+
+            var result = MessageBox.Show("Weet je het zeker?", "Playlist verwijderen", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                var playlist = (Playlist)Playlists.SelectedItem;
+                client.DeletePlaylist(playlist);
+                FillPlaylists();
+            }
         }
     }
 }
