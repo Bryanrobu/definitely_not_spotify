@@ -7,11 +7,38 @@ namespace definitely_not_spotify
 {
     internal class TestData
     {
+        public static List<Playlist> GetPlaylists(User user)
+        {
+            var rock = new Playlist("Rock Classics", user);
+            rock.AddSong(new Song("Bohemian Rhapsody", Genre.Rock, "Queen"));
+            rock.AddSong(new Song("Stairway to Heaven", Genre.Rock, "Led Zeppelin"));
+            rock.AddSong(new Song("Hotel California", Genre.Rock, "Eagles"));
+
+            var hiphop = new Playlist("Hip Hop Hits", user);
+            hiphop.AddSong(new Song("Lose Yourself", Genre.HipHop, "Eminem"));
+            hiphop.AddSong(new Song("Juicy", Genre.HipHop, "The Notorious B.I.G."));
+            hiphop.AddSong(new Song("HUMBLE.", Genre.HipHop, "Kendrick Lamar"));
+
+            var pop = new Playlist("Pop Favorites", user);
+            pop.AddSong(new Song("Shape of You", Genre.Pop, "Ed Sheeran"));
+            pop.AddSong(new Song("Blinding Lights", Genre.Pop, "The Weeknd"));
+            pop.AddSong(new Song("Uptown Funk", Genre.Pop, "Bruno Mars"));
+
+            var electronic = new Playlist("Electronic Vibes", user);
+            electronic.AddSong(new Song("Wake Me Up", Genre.Electronic, "Avicii"));
+            electronic.AddSong(new Song("Titanium", Genre.Electronic, "David Guetta"));
+            electronic.AddSong(new Song("Clarity", Genre.Electronic, "Zedd"));
+
+            return new List<Playlist> { rock, hiphop, pop, electronic };
+        }
         public static List<User> GetUsers()
         {
+            var bryan = new User("Bryan");
+            bryan.Playlists.AddRange(GetPlaylists(bryan));
+
             return new List<User>
             {
-                new User("Bryan"),
+                bryan,
                 new User("Cas"),
                 new User("Test")
             };

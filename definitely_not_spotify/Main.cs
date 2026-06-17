@@ -205,8 +205,7 @@ namespace definitely_not_spotify
                     var result = MessageBox.Show(
                         "Dit nummer staat al in de playlist. Toch toevoegen?",
                         "Dubbel nummer",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question);
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (result == DialogResult.No)
                     {

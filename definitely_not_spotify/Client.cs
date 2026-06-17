@@ -14,9 +14,9 @@ namespace definitely_not_spotify
         {
             Users = new List<User>();
             Songs = new List<Song>();
+            playlists = new List<Playlist>();
             Songs.AddRange(TestData.GetSongs());
             Users.AddRange(TestData.GetUsers());
-            playlists = new List<Playlist>(); 
         }
 
         public User CreateUser(string username)
