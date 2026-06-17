@@ -7,6 +7,16 @@ namespace definitely_not_spotify
 {
     internal class TestData
     {
+        public static List<User> GetUsers()
+        {
+            return new List<User>
+            {
+                new User("Bryan"),
+                new User("Cas"),
+                new User("Test")
+            };
+        }
+
         public static List<Song> GetSongs()
         {
             return new List<Song>
