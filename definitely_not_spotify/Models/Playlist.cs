@@ -39,5 +39,8 @@ namespace definitely_not_spotify.Models
         {
             return GetName();
         }
+
+        public List<Song> GetSongs() => Songs;
+
     }
 }

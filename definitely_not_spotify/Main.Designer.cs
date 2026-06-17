@@ -44,6 +44,7 @@
             logout = new Button();
             add_playlist = new Button();
             delete_playlist = new Button();
+            addSong = new Button();
             SuspendLayout();
             // 
             // button1
@@ -125,7 +126,7 @@
             Discover.FormattingEnabled = true;
             Discover.Location = new Point(292, 44);
             Discover.Name = "Discover";
-            Discover.Size = new Size(383, 334);
+            Discover.Size = new Size(383, 304);
             Discover.TabIndex = 7;
             // 
             // nowPlaying
@@ -205,11 +206,22 @@
             delete_playlist.UseVisualStyleBackColor = true;
             delete_playlist.Click += delete_playlist_Click;
             // 
+            // addSong
+            // 
+            addSong.Location = new Point(292, 354);
+            addSong.Name = "addSong";
+            addSong.Size = new Size(143, 23);
+            addSong.TabIndex = 16;
+            addSong.Text = "Add to playlist";
+            addSong.UseVisualStyleBackColor = true;
+            addSong.Click += addSong_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(addSong);
             Controls.Add(delete_playlist);
             Controls.Add(add_playlist);
             Controls.Add(logout);
@@ -250,5 +262,6 @@
         private Button logout;
         private Button add_playlist;
         private Button delete_playlist;
+        private Button addSong;
     }
 }

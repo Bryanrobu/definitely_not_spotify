@@ -9,6 +9,7 @@ namespace definitely_not_spotify
         private Song currentSong;
         private Song selectedSong;
         private bool isPlaying;
+        private ListBox activeList;
         public Main()
         {
             InitializeComponent();
@@ -32,6 +33,10 @@ namespace definitely_not_spotify
             if (sender is ListBox list && list.SelectedItem is Song song)
             {
                 selectedSong = song;
+                activeList = list;
+
+                if (list == Discover) Numbers.ClearSelected();
+                else if (list == Numbers) Discover.ClearSelected();
             }
         }
 
@@ -63,29 +68,46 @@ namespace definitely_not_spotify
 
         private void skip_Click(object sender, EventArgs e)
         {
-            if (currentSong == null) return;
-            int index = client.Songs.IndexOf(currentSong);
-            if (index + 1 < client.Songs.Count)
-                currentSong = client.Songs[index + 1];
-            selectedSong = currentSong;
-            isPlaying = true;
-            UpdateNowPlaying();
+            if (activeList == null) return;
+            int i = activeList.SelectedIndex + 1;
+            if (i < activeList.Items.Count)
+            {
+                activeList.SelectedIndex = i;
+                currentSong = selectedSong;
+                isPlaying = true;
+                UpdateNowPlaying();
+            }
         }
 
         private void return_Click(object sender, EventArgs e)
         {
-            if (currentSong == null) return;
-            int index = client.Songs.IndexOf(currentSong);
-            if (index - 1 > 0)
-                currentSong = client.Songs[index - 1];
-            selectedSong = currentSong;
-            isPlaying = true;
-            UpdateNowPlaying();
+            if (activeList == null) return;
+            int i = activeList.SelectedIndex - 1;
+            if (i >= 0)
+            {
+                activeList.SelectedIndex = i;
+                currentSong = selectedSong;
+                isPlaying = true;
+                UpdateNowPlaying();
+            }
         }
 
         private void Playlists_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (Playlists.SelectedItem is Playlist playlist)
+            {
+                ShowPlaylistSongs(playlist);
+            }
+        }
 
+        private void ShowPlaylistSongs(Playlist playlist)
+        {
+            Numbers.Items.Clear();
+            Numbers.DisplayMember = "Display";
+            foreach (var song in playlist.GetSongs())
+            {
+                Numbers.Items.Add(song);
+            }
         }
 
         private void Users_SelectedIndexChanged(object sender, EventArgs e)
@@ -170,6 +192,16 @@ namespace definitely_not_spotify
                 var playlist = (Playlist)Playlists.SelectedItem;
                 client.DeletePlaylist(playlist);
                 FillPlaylists();
+                Numbers.Items.Clear();
+            }
+        }
+
+        private void addSong_Click(object sender, EventArgs e)
+        {
+            if (Discover.SelectedItem is Song song && Playlists.SelectedItem is Playlist playlist)
+            {
+                playlist.AddSong(song);
+                ShowPlaylistSongs(playlist);
             }
         }
     }
