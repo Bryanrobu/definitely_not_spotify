@@ -45,6 +45,7 @@
             add_playlist = new Button();
             delete_playlist = new Button();
             addSong = new Button();
+            removeSong = new Button();
             SuspendLayout();
             // 
             // button1
@@ -216,11 +217,22 @@
             addSong.UseVisualStyleBackColor = true;
             addSong.Click += addSong_Click;
             // 
+            // removeSong
+            // 
+            removeSong.Location = new Point(439, 355);
+            removeSong.Name = "removeSong";
+            removeSong.Size = new Size(143, 23);
+            removeSong.TabIndex = 17;
+            removeSong.Text = "Remove from playlist";
+            removeSong.UseVisualStyleBackColor = true;
+            removeSong.Click += removeSong_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(removeSong);
             Controls.Add(addSong);
             Controls.Add(delete_playlist);
             Controls.Add(add_playlist);
@@ -263,5 +275,6 @@
         private Button add_playlist;
         private Button delete_playlist;
         private Button addSong;
+        private Button removeSong;
     }
 }

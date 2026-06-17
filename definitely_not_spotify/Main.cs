@@ -204,5 +204,14 @@ namespace definitely_not_spotify
                 ShowPlaylistSongs(playlist);
             }
         }
+
+        private void removeSong_Click(object sender, EventArgs e)
+        {
+            if (Numbers.SelectedItem is Song song && Playlists.SelectedItem is Playlist playlist)
+            {
+                playlist.RemoveSong(song);
+                ShowPlaylistSongs(playlist);
+            }
+        }
     }
 }
