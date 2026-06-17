@@ -200,6 +200,19 @@ namespace definitely_not_spotify
         {
             if (Discover.SelectedItem is Song song && Playlists.SelectedItem is Playlist playlist)
             {
+                if (playlist.GetSongs().Contains(song))
+                {
+                    var result = MessageBox.Show(
+                        "Dit nummer staat al in de playlist. Toch toevoegen?",
+                        "Dubbel nummer",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
                 playlist.AddSong(song);
                 ShowPlaylistSongs(playlist);
             }
