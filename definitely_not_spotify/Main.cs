@@ -10,6 +10,7 @@ namespace definitely_not_spotify
         private Song selectedSong;
         private bool isPlaying;
         private ListBox activeList;
+        private ListBox playingList;
         public Main()
         {
             InitializeComponent();
@@ -45,6 +46,7 @@ namespace definitely_not_spotify
             if (selectedSong != null && selectedSong != currentSong)
             {
                 currentSong = selectedSong;
+                playingList = activeList;
                 isPlaying = true;
             }
             else if (currentSong != null)
@@ -68,12 +70,11 @@ namespace definitely_not_spotify
 
         private void skip_Click(object sender, EventArgs e)
         {
-            if (activeList == null) return;
-            int i = activeList.SelectedIndex + 1;
-            if (i < activeList.Items.Count)
+            if (playingList == null || currentSong == null) return;
+            int i = playingList.Items.IndexOf(currentSong) + 1;
+            if (i < playingList.Items.Count)
             {
-                activeList.SelectedIndex = i;
-                currentSong = selectedSong;
+                currentSong = (Song)playingList.Items[i];
                 isPlaying = true;
                 UpdateNowPlaying();
             }
@@ -81,12 +82,11 @@ namespace definitely_not_spotify
 
         private void return_Click(object sender, EventArgs e)
         {
-            if (activeList == null) return;
-            int i = activeList.SelectedIndex - 1;
+            if (playingList == null || currentSong == null) return;
+            int i = playingList.Items.IndexOf(currentSong) - 1;
             if (i >= 0)
             {
-                activeList.SelectedIndex = i;
-                currentSong = selectedSong;
+                currentSong = (Song)playingList.Items[i];
                 isPlaying = true;
                 UpdateNowPlaying();
             }
