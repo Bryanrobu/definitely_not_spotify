@@ -1,4 +1,4 @@
-using definitely_not_spotify.Models;
+﻿using definitely_not_spotify.Models;
 
 namespace definitely_not_spotify
 {
@@ -53,6 +53,12 @@ namespace definitely_not_spotify
             {
                 isPlaying = !isPlaying;
             }
+            else if (Numbers.Items.Count > 0)
+            {
+                currentSong = (Song)Numbers.Items[0];
+                playingList = Numbers;
+                isPlaying = true;
+            }
             UpdateNowPlaying();
         }
 
@@ -97,6 +103,9 @@ namespace definitely_not_spotify
             if (Playlists.SelectedItem is Playlist playlist)
             {
                 ShowPlaylistSongs(playlist);
+                selectedSong = null;
+                Discover.ClearSelected();
+                Numbers.ClearSelected();
             }
         }
 
@@ -224,6 +233,13 @@ namespace definitely_not_spotify
                 playlist.RemoveSong(song);
                 ShowPlaylistSongs(playlist);
             }
+        }
+
+        private void stopButton_Click(object sender, EventArgs e)
+        {
+            this.currentSong = null;
+            this.playingList = null;
+            nowPlaying.Text = "Nothing is playing" + Environment.NewLine + "no artist";
         }
     }
 }

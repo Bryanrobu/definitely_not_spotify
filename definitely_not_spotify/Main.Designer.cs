@@ -46,6 +46,7 @@
             delete_playlist = new Button();
             addSong = new Button();
             removeSong = new Button();
+            stopButton = new Button();
             SuspendLayout();
             // 
             // button1
@@ -227,11 +228,22 @@
             removeSong.UseVisualStyleBackColor = true;
             removeSong.Click += removeSong_Click;
             // 
+            // stopButton
+            // 
+            stopButton.Location = new Point(588, 393);
+            stopButton.Name = "stopButton";
+            stopButton.Size = new Size(40, 45);
+            stopButton.TabIndex = 18;
+            stopButton.Text = "Stop";
+            stopButton.UseVisualStyleBackColor = true;
+            stopButton.Click += stopButton_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(stopButton);
             Controls.Add(removeSong);
             Controls.Add(addSong);
             Controls.Add(delete_playlist);
@@ -276,5 +288,6 @@
         private Button delete_playlist;
         private Button addSong;
         private Button removeSong;
+        private Button stopButton;
     }
 }
