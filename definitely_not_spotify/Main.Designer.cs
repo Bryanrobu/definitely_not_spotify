@@ -119,9 +119,9 @@
             // 
             Users.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             Users.FormattingEnabled = true;
-            Users.Location = new Point(681, 44);
+            Users.Location = new Point(1156, 43);
             Users.Name = "Users";
-            Users.Size = new Size(120, 334);
+            Users.Size = new Size(120, 154);
             Users.TabIndex = 5;
             Users.SelectedIndexChanged += Users_SelectedIndexChanged;
             // 
