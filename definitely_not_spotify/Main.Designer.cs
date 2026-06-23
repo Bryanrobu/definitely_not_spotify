@@ -47,6 +47,17 @@
             addSong = new Button();
             removeSong = new Button();
             stopButton = new Button();
+            artists = new ListBox();
+            label4 = new Label();
+            Albums = new ListBox();
+            label5 = new Label();
+            Songs = new ListBox();
+            label6 = new Label();
+            FriendRequests = new ListBox();
+            label7 = new Label();
+            AddFriend = new Button();
+            AcceptFriend = new Button();
+            DeclineFriend = new Button();
             SuspendLayout();
             // 
             // button1
@@ -145,7 +156,7 @@
             // currentUser
             // 
             currentUser.AutoSize = true;
-            currentUser.Location = new Point(718, 393);
+            currentUser.Location = new Point(1156, 393);
             currentUser.Name = "currentUser";
             currentUser.Size = new Size(70, 15);
             currentUser.TabIndex = 9;
@@ -180,7 +191,7 @@
             // 
             // logout
             // 
-            logout.Location = new Point(718, 415);
+            logout.Location = new Point(1156, 415);
             logout.Name = "logout";
             logout.Size = new Size(75, 23);
             logout.TabIndex = 13;
@@ -238,11 +249,118 @@
             stopButton.UseVisualStyleBackColor = true;
             stopButton.Click += stopButton_Click;
             // 
+            // artists
+            // 
+            artists.FormattingEnabled = true;
+            artists.Location = new Point(681, 45);
+            artists.Name = "artists";
+            artists.Size = new Size(114, 304);
+            artists.TabIndex = 19;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(681, 23);
+            label4.Name = "label4";
+            label4.Size = new Size(40, 15);
+            label4.TabIndex = 20;
+            label4.Text = "Artists";
+            // 
+            // Albums
+            // 
+            Albums.FormattingEnabled = true;
+            Albums.Location = new Point(801, 44);
+            Albums.Name = "Albums";
+            Albums.Size = new Size(114, 304);
+            Albums.TabIndex = 21;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(801, 23);
+            label5.Name = "label5";
+            label5.Size = new Size(48, 15);
+            label5.TabIndex = 22;
+            label5.Text = "Albums";
+            // 
+            // Songs
+            // 
+            Songs.FormattingEnabled = true;
+            Songs.Location = new Point(921, 44);
+            Songs.Name = "Songs";
+            Songs.Size = new Size(229, 304);
+            Songs.TabIndex = 23;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(921, 23);
+            label6.Name = "label6";
+            label6.Size = new Size(56, 15);
+            label6.TabIndex = 24;
+            label6.Text = "Numbers";
+            // 
+            // FriendRequests
+            // 
+            FriendRequests.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            FriendRequests.FormattingEnabled = true;
+            FriendRequests.Location = new Point(1156, 225);
+            FriendRequests.Name = "FriendRequests";
+            FriendRequests.Size = new Size(120, 124);
+            FriendRequests.TabIndex = 25;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(1156, 207);
+            label7.Name = "label7";
+            label7.Size = new Size(87, 15);
+            label7.TabIndex = 26;
+            label7.Text = "Friend requests";
+            // 
+            // AddFriend
+            // 
+            AddFriend.Location = new Point(1156, 354);
+            AddFriend.Name = "AddFriend";
+            AddFriend.Size = new Size(92, 23);
+            AddFriend.TabIndex = 27;
+            AddFriend.Text = "Add friend";
+            AddFriend.UseVisualStyleBackColor = true;
+            // 
+            // AcceptFriend
+            // 
+            AcceptFriend.Location = new Point(1254, 354);
+            AcceptFriend.Name = "AcceptFriend";
+            AcceptFriend.Size = new Size(92, 23);
+            AcceptFriend.TabIndex = 28;
+            AcceptFriend.Text = "Accept friend";
+            AcceptFriend.UseVisualStyleBackColor = true;
+            // 
+            // DeclineFriend
+            // 
+            DeclineFriend.Location = new Point(1254, 383);
+            DeclineFriend.Name = "DeclineFriend";
+            DeclineFriend.Size = new Size(92, 23);
+            DeclineFriend.TabIndex = 29;
+            DeclineFriend.Text = "Decline friend";
+            DeclineFriend.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1492, 450);
+            Controls.Add(DeclineFriend);
+            Controls.Add(AcceptFriend);
+            Controls.Add(AddFriend);
+            Controls.Add(label7);
+            Controls.Add(FriendRequests);
+            Controls.Add(label6);
+            Controls.Add(Songs);
+            Controls.Add(label5);
+            Controls.Add(Albums);
+            Controls.Add(label4);
+            Controls.Add(artists);
             Controls.Add(stopButton);
             Controls.Add(removeSong);
             Controls.Add(addSong);
@@ -289,5 +407,16 @@
         private Button addSong;
         private Button removeSong;
         private Button stopButton;
+        private ListBox artists;
+        private Label label4;
+        private ListBox Albums;
+        private Label label5;
+        private ListBox Songs;
+        private Label label6;
+        private ListBox FriendRequests;
+        private Label label7;
+        private Button AddFriend;
+        private Button AcceptFriend;
+        private Button DeclineFriend;
     }
 }
