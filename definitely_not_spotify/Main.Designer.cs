@@ -64,6 +64,8 @@
             label9 = new Label();
             FriendSongs = new ListBox();
             label10 = new Label();
+            addFriendSong = new Button();
+            addFriendPlaylist = new Button();
             SuspendLayout();
             // 
             // button1
@@ -410,11 +412,33 @@
             label10.TabIndex = 35;
             label10.Text = "Friends Songs";
             // 
+            // addFriendSong
+            // 
+            addFriendSong.Location = new Point(1397, 354);
+            addFriendSong.Name = "addFriendSong";
+            addFriendSong.Size = new Size(131, 23);
+            addFriendSong.TabIndex = 36;
+            addFriendSong.Text = "Add song to playlist";
+            addFriendSong.UseVisualStyleBackColor = true;
+            addFriendSong.Click += addFriendSong_Click;
+            // 
+            // addFriendPlaylist
+            // 
+            addFriendPlaylist.Location = new Point(1397, 383);
+            addFriendPlaylist.Name = "addFriendPlaylist";
+            addFriendPlaylist.Size = new Size(131, 23);
+            addFriendPlaylist.TabIndex = 37;
+            addFriendPlaylist.Text = "Add playlist to playlist";
+            addFriendPlaylist.UseVisualStyleBackColor = true;
+            addFriendPlaylist.Click += addFriendPlaylist_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1592, 450);
+            Controls.Add(addFriendPlaylist);
+            Controls.Add(addFriendSong);
             Controls.Add(label10);
             Controls.Add(FriendSongs);
             Controls.Add(label9);
@@ -495,5 +519,7 @@
         private Label label9;
         private ListBox FriendSongs;
         private Label label10;
+        private Button addFriendSong;
+        private Button addFriendPlaylist;
     }
 }

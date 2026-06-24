@@ -1,4 +1,5 @@
 ﻿using definitely_not_spotify.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace definitely_not_spotify
 {
@@ -314,6 +315,52 @@ namespace definitely_not_spotify
             {
                 client.DeclineFriendRequest(from);
                 FillFriendRequests();
+            }
+        }
+
+        private void addFriendSong_Click(object sender, EventArgs e)
+        {
+            if (FriendSongs.SelectedItem is Song song && Playlists.SelectedItem is Playlist myPlaylist)
+            {
+                if (myPlaylist.GetSongs().Contains(song))
+                {
+                    var result = MessageBox.Show(
+                        "Dit nummer staat al in de playlist. Toch toevoegen?",
+                        "Dubbel nummer",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+                myPlaylist.AddSong(song);
+                ShowPlaylistSongs(myPlaylist);
+            }
+        }
+
+        private void addFriendPlaylist_Click(object sender, EventArgs e)
+        {
+            if (FriendPlaylists.SelectedItem is Playlist friendPlaylist && Playlists.SelectedItem is Playlist myPlaylist)
+            {
+                foreach (var song in friendPlaylist.GetSongs())
+                {
+                    if (myPlaylist.GetSongs().Contains(song))
+                    {
+                        var result = MessageBox.Show(
+                            $"\"{song.Title}\" staat al in de playlist. Toch toevoegen?",
+                            "Dubbel nummer",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.No)
+                        {
+                            continue;
+                        }
+                    }
+                    myPlaylist.AddSong(song);
+                }
+                ShowPlaylistSongs(myPlaylist);
+                ShowPlaylistSongs(myPlaylist);
             }
         }
     }
