@@ -106,5 +106,11 @@ namespace definitely_not_spotify
         {
             CurrentUser.FriendRequests.Remove(from);
         }
-    }
+
+        public void RemoveFriend(User friend)
+        {
+            CurrentUser.Friends.Remove(friend);
+            friend.Friends.Remove(CurrentUser);
+        }
+}
 }

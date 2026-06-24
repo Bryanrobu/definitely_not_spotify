@@ -70,6 +70,7 @@
             targetPlaylist = new ComboBox();
             label11 = new Label();
             addOwnPlaylist = new Button();
+            removeFriend = new Button();
             SuspendLayout();
             // 
             // button1
@@ -488,11 +489,22 @@
             addOwnPlaylist.UseVisualStyleBackColor = true;
             addOwnPlaylist.Click += addOwnPlaylist_Click;
             // 
+            // removeFriend
+            // 
+            removeFriend.Location = new Point(1254, 412);
+            removeFriend.Name = "removeFriend";
+            removeFriend.Size = new Size(92, 23);
+            removeFriend.TabIndex = 42;
+            removeFriend.Text = "Remove friend";
+            removeFriend.UseVisualStyleBackColor = true;
+            removeFriend.Click += removeFriend_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1539, 441);
+            Controls.Add(removeFriend);
             Controls.Add(addOwnPlaylist);
             Controls.Add(label11);
             Controls.Add(targetPlaylist);
@@ -585,5 +597,6 @@
         private ComboBox targetPlaylist;
         private Label label11;
         private Button addOwnPlaylist;
+        private Button removeFriend;
     }
 }

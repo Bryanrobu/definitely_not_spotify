@@ -356,9 +356,18 @@ namespace definitely_not_spotify
         {
             if (Playlists.SelectedItem is Playlist source
             && targetPlaylist.SelectedItem is Playlist target
-            && source != target)                          
+            && source != target)
             {
                 AddSongsToPlaylist(target.Songs, source);
+            }
+        }
+
+        private void removeFriend_Click(object sender, EventArgs e)
+        {
+            if (FriendsList.SelectedItem is User from)
+            {
+                client.RemoveFriend(from);
+                FillFriends();
             }
         }
     }
