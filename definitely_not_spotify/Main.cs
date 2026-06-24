@@ -27,6 +27,9 @@ namespace definitely_not_spotify
             FillUsers();
             FillDiscover();
             FillPlaylists();
+            FillArtists();
+            artists.SelectedIndexChanged += Artists_SelectedIndexChanged;
+            Albums.SelectedIndexChanged += Albums_SelectedIndexChanged;
         }
 
         private void Song_SelectedIndexChanged(object sender, EventArgs e)
@@ -160,6 +163,16 @@ namespace definitely_not_spotify
             }
         }
 
+        private void FillArtists()
+        {
+            artists.Items.Clear();
+            artists.DisplayMember = "Name";
+            foreach (var artist in client.Artists)
+            {
+                artists.Items.Add(artist);
+            }
+        }
+
         private void logout_Click(object sender, EventArgs e)
         {
             client.Logout();
@@ -240,6 +253,38 @@ namespace definitely_not_spotify
             this.currentSong = null;
             this.playingList = null;
             nowPlaying.Text = "Nothing is playing" + Environment.NewLine + "no artist";
+        }
+
+        private void Artists_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (artists.SelectedItem is Artist artist)
+            {
+                Albums.Items.Clear();
+                Albums.DisplayMember = "Title";
+                foreach (var album in artist.Albums)
+                {
+                    Albums.Items.Add(album);
+                }
+                Songs.Items.Clear();
+            }
+        }
+
+        private void Albums_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Albums.SelectedItem is Album album)
+            {
+                Songs.Items.Clear();
+                Songs.DisplayMember = "Display";
+                foreach (var song in album.Songs)
+                {
+                    Songs.Items.Add(song);
+                }
+            }
+        }
+
+        private void Songs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
