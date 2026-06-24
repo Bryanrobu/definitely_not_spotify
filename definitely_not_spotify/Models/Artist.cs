@@ -12,11 +12,5 @@ namespace definitely_not_spotify.Models
             Songs = new List<Song>();
             Albums = new List<Album>();
         }
-
-        public string GetName() => Name;
-
-        public List<Song> GetSongs() => Songs;
-
-        public List<Album> GetAlbums() => Albums;
     }
 }

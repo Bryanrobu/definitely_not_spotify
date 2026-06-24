@@ -12,11 +12,5 @@ namespace definitely_not_spotify.Models
             Artist = artist;
             Songs = new List<Song>();
         }
-
-        public void SetTitle(string title) => Title = title;
-
-        public List<Song> GetSongs() => Songs;
-
-        public Artist GetArtist() => Artist;
     }
 }

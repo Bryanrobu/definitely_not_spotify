@@ -432,7 +432,7 @@
             addFriendSong.TabIndex = 36;
             addFriendSong.Text = "Add song to playlist";
             addFriendSong.UseVisualStyleBackColor = true;
-            addFriendSong.Click += addFriendSong_Click;
+            addFriendSong.Click += addSong_Click;
             // 
             // addFriendPlaylist
             // 

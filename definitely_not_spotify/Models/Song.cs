@@ -23,9 +23,5 @@ namespace definitely_not_spotify.Models
             Genre = genre;
             Artists = artist.Name;
         }
-
-        public string GetArtists() => Artists;
-        public string GetTitle() => Title;
-        public Genre GetGenre() => Genre;
     }
 }

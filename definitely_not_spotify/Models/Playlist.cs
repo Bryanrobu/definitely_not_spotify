@@ -15,32 +15,10 @@ namespace definitely_not_spotify.Models
 
         public void AddSong(Song s) => Songs.Add(s);
 
-        public void AddPlaylist(Playlist p)
-        {
-            foreach (var song in p.Songs)
-            {
-                Songs.Add(song);
-            }
-        }
-
         public void RemoveSong(Song s) => Songs.Remove(s);
-
-        public void PlayPlaylist()
-        {
-
-        }
-
-        public string GetName()
-        {
-            return Name;
-        }
-
-        public override string ToString()
-        {
-            return GetName();
-        }
 
         public List<Song> GetSongs() => Songs;
 
+        public override string ToString() => Name;
     }
 }
