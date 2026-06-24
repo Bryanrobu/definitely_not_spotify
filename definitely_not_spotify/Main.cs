@@ -124,7 +124,7 @@ namespace definitely_not_spotify
 
         private void ShowPlaylistSongs(Playlist playlist)
         {
-            Fill(Numbers, playlist.GetSongs(), "Display");
+            Fill(Numbers, playlist.Songs, "Display");
         }
 
         private void Users_SelectedIndexChanged(object sender, EventArgs e)
@@ -245,7 +245,7 @@ namespace definitely_not_spotify
         private void FriendPlaylists_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (FriendPlaylists.SelectedItem is Playlist playlist)
-                Fill(FriendSongs, playlist.GetSongs(), "Display");
+                Fill(FriendSongs, playlist.Songs, "Display");
             else
                 FriendSongs.Items.Clear();
         }
@@ -280,7 +280,7 @@ namespace definitely_not_spotify
         private void addFriendPlaylist_Click(object sender, EventArgs e)
         {
             if (FriendPlaylists.SelectedItem is Playlist friendPlaylist && Playlists.SelectedItem is Playlist myPlaylist)
-                AddSongsToPlaylist(friendPlaylist.GetSongs(), myPlaylist);
+                AddSongsToPlaylist(friendPlaylist.Songs, myPlaylist);
         }
 
         private void addFriendSong_Click(object sender, EventArgs e)
@@ -331,7 +331,7 @@ namespace definitely_not_spotify
         {
             foreach (var song in songs)
             {
-                if (target.GetSongs().Contains(song))
+                if (target.Songs.Contains(song))
                 {
                     var result = MessageBox.Show(
                         $"\"{song.Title}\" staat al in de playlist. Toch toevoegen?",
@@ -358,7 +358,7 @@ namespace definitely_not_spotify
             && targetPlaylist.SelectedItem is Playlist target
             && source != target)                          
             {
-                AddSongsToPlaylist(target.GetSongs(), source);
+                AddSongsToPlaylist(target.Songs, source);
             }
         }
     }

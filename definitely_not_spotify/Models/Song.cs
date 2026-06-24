@@ -1,12 +1,10 @@
-using System.Security.Cryptography.X509Certificates;
-
 namespace definitely_not_spotify.Models
 {
     public class Song
     {
-        public string Title { get; set; }
-        public string Artists { get; set; }
-        public Genre Genre { get; set; }
+        public string Title { get; private set; }
+        public string Artists { get; private set; }
+        public Genre Genre { get; private set; }
 
         public string Display => $"{Title} - {Artists}";
 
@@ -23,5 +21,7 @@ namespace definitely_not_spotify.Models
             Genre = genre;
             Artists = artist.Name;
         }
+
+        public override string ToString() => $"{Title} - {Artists}";
     }
 }
