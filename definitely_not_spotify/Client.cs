@@ -67,5 +67,25 @@ namespace definitely_not_spotify
             CurrentUser.Playlists.Remove(playlist);
             playlists.Remove(playlist);
         }
+
+        public void SendFriendRequest(User to)
+        {
+            if (to == CurrentUser) return;
+            if (CurrentUser.Friends.Contains(to)) return;
+            if (to.FriendRequests.Contains(CurrentUser)) return;
+            to.FriendRequests.Add(CurrentUser);
+        }
+
+        public void AcceptFriendRequest(User from)
+        {
+            CurrentUser.FriendRequests.Remove(from);
+            CurrentUser.Friends.Add(from);
+            from.Friends.Add(CurrentUser);
+        }
+
+        public void DeclineFriendRequest(User from)
+        {
+            CurrentUser.FriendRequests.Remove(from);
+        }
     }
 }

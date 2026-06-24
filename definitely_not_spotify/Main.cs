@@ -27,6 +27,8 @@ namespace definitely_not_spotify
             FillUsers();
             FillDiscover();
             FillPlaylists();
+            FillFriendRequests();
+            FillFriends();
         }
 
         private void Song_SelectedIndexChanged(object sender, EventArgs e)
@@ -240,6 +242,79 @@ namespace definitely_not_spotify
             this.currentSong = null;
             this.playingList = null;
             nowPlaying.Text = "Nothing is playing" + Environment.NewLine + "no artist";
+        }
+
+        private void FillFriendRequests()
+        {
+            FriendRequests.Items.Clear();
+            FriendRequests.DisplayMember = "Username";
+            foreach (var u in user.FriendRequests)
+            {
+                FriendRequests.Items.Add(u);
+            }
+        }
+
+        private void FillFriends()
+        {
+            FriendsList.Items.Clear();
+            FriendsList.DisplayMember = "Username";
+            foreach (var u in user.Friends)
+            {
+                FriendsList.Items.Add(u);
+            }
+        }
+
+        private void FriendsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FriendPlaylists.Items.Clear();
+            FriendSongs.Items.Clear();
+            if (FriendsList.SelectedItem is User friend)
+            {
+                foreach (var p in friend.Playlists)
+                {
+                    FriendPlaylists.Items.Add(p);
+                }
+            }
+        }
+
+        private void FriendPlaylists_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FriendSongs.Items.Clear();
+            FriendSongs.DisplayMember = "Display";
+            if (FriendPlaylists.SelectedItem is Playlist playlist)
+            {
+                foreach (var s in playlist.GetSongs())
+                {
+                    FriendSongs.Items.Add(s);
+                }
+            }
+        }
+
+        private void AddFriend_Click(object sender, EventArgs e)
+        {
+            if (Users.SelectedItem is User target)
+            {
+                client.SendFriendRequest(target);
+            }
+        }
+
+        private void AcceptFriend_Click(object sender, EventArgs e)
+        {
+            if (FriendRequests.SelectedItem is User from)
+            {
+                client.AcceptFriendRequest(from);
+                FillFriendRequests();
+                FillFriends();
+            }
+        }
+
+        private void DeclineFriend_Click(object sender, EventArgs e)
+        {
+            if (FriendRequests.SelectedItem is User from)
+            {
+                client.DeclineFriendRequest(from);
+                FillFriendRequests();
+            }
         }
     }
 }
