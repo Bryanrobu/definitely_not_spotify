@@ -17,8 +17,6 @@ namespace definitely_not_spotify
         {
             InitializeComponent();
             nowPlaying.Text = "Nothing is playing" + Environment.NewLine + "no artist";
-            Discover.SelectedIndexChanged += Song_SelectedIndexChanged;
-            Numbers.SelectedIndexChanged += Song_SelectedIndexChanged;
         }
 
         public Main(Client client) : this()
@@ -32,6 +30,7 @@ namespace definitely_not_spotify
             FillFriendRequests();
             FillFriends();
             FillArtists();
+            FillTargetPlaylists();
         }
 
         private void Fill(ListBox box, IEnumerable items, string displayMember = null)
@@ -51,6 +50,7 @@ namespace definitely_not_spotify
                 if (list != Discover) Discover.ClearSelected();
                 if (list != Numbers) Numbers.ClearSelected();
                 if (list != Songs) Songs.ClearSelected();
+                if (list != FriendSongs) FriendSongs.ClearSelected();
             }
         }
 
@@ -84,7 +84,7 @@ namespace definitely_not_spotify
             }
 
             string status = isPlaying ? "Playing" : "Paused";
-            nowPlaying.Text = status + ": " + currentSong.Title + Environment.NewLine + currentSong.Artists + Environment.NewLine + currentSong.Genre;
+            nowPlaying.Text = status + ": " + currentSong.Title + Environment.NewLine + currentSong.Artists + " - " + currentSong.Genre;
         }
 
         private void skip_Click(object sender, EventArgs e)
@@ -282,6 +282,13 @@ namespace definitely_not_spotify
             if (FriendPlaylists.SelectedItem is Playlist friendPlaylist && Playlists.SelectedItem is Playlist myPlaylist)
                 AddSongsToPlaylist(friendPlaylist.GetSongs(), myPlaylist);
         }
+
+        private void addFriendSong_Click(object sender, EventArgs e)
+        {
+            if (FriendSongs.SelectedItem is Song song && Playlists.SelectedItem is Playlist myPlaylist)
+                AddSongsToPlaylist(new[] { song }, myPlaylist);
+        }
+
         private void Artists_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (artists.SelectedItem is Artist artist)
@@ -336,6 +343,23 @@ namespace definitely_not_spotify
                 target.AddSong(song);
             }
             ShowPlaylistSongs(target);
+        }
+
+        private void FillTargetPlaylists()
+        {
+            targetPlaylist.Items.Clear();
+            foreach (var p in user.Playlists)
+                targetPlaylist.Items.Add(p);
+        }
+
+        private void addOwnPlaylist_Click(object sender, EventArgs e)
+        {
+            if (Playlists.SelectedItem is Playlist source
+            && targetPlaylist.SelectedItem is Playlist target
+            && source != target)                          
+            {
+                AddSongsToPlaylist(target.GetSongs(), source);
+            }
         }
     }
 }
