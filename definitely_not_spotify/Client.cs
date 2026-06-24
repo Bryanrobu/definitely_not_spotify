@@ -22,6 +22,22 @@ namespace definitely_not_spotify
             Artists.AddRange(TestData.GetArtists());
         }
 
+        public List<Song> Search(string term)
+        {
+            term = term.ToLower();
+            List<Song> results = new List<Song>();
+
+            foreach (var song in Songs)
+            {
+                if (song.Title.ToLower().Contains(term) || song.Artists.ToLower().Contains(term) || song.Genre.ToString().ToLower().Contains(term))
+                {
+                    results.Add(song);
+                }
+            }
+
+            return results;
+        }
+
         public User CreateUser(string username)
         {
             if (string.IsNullOrWhiteSpace(username))

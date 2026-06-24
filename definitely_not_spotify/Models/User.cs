@@ -2,10 +2,10 @@ namespace definitely_not_spotify.Models
 {
     public class User
     {
-        public string Username { get; set; }
-        public List<Playlist> Playlists { get; set; }
-        public List<User> Friends { get; set; }
-        public List<User> FriendRequests { get; set; }
+        public string Username { get; private set; }
+        public List<Playlist> Playlists { get; private set; }
+        public List<User> Friends { get; private set; }
+        public List<User> FriendRequests { get; private set; }
 
         public User(string username)
         {
@@ -14,5 +14,7 @@ namespace definitely_not_spotify.Models
             Friends = new List<User>();
             FriendRequests = new List<User>();
         }
+
+        public override string ToString() => Username;
     }
 }

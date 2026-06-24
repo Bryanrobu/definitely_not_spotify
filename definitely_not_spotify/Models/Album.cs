@@ -2,9 +2,9 @@ namespace definitely_not_spotify.Models
 {
     public class Album
     {
-        public string Title { get; set; }
-        public List<Song> Songs { get; set; }
-        public Artist Artist { get; set; }
+        public string Title { get; private set; }
+        public List<Song> Songs { get; private set; }
+        public Artist Artist { get; private set; }
 
         public Album(string title, Artist artist)
         {
@@ -13,10 +13,8 @@ namespace definitely_not_spotify.Models
             Songs = new List<Song>();
         }
 
-        public void SetTitle(string title) => Title = title;
+        public void AddSong(Song s) => Songs.Add(s);
 
-        public List<Song> GetSongs() => Songs;
-
-        public Artist GetArtist() => Artist;
+        public override string ToString() => Title;
     }
 }

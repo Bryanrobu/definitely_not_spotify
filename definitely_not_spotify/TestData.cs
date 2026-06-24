@@ -14,23 +14,23 @@ namespace definitely_not_spotify
             var linkinpark = new Artist("Linkin Park");
 
             var queenAlbum = new Album("A Night at the Opera", queen);
-            queenAlbum.Songs.Add(new Song("Bohemian Rhapsody", Genre.Rock, queen));
-            queenAlbum.Songs.Add(new Song("Love of My Life", Genre.Rock, queen));
+            queenAlbum.Songs.Add(new Song("Bohemian Rhapsody", Genre.Rock, "Queen"));
+            queenAlbum.Songs.Add(new Song("Love of My Life", Genre.Rock, "Queen"));
             queen.Albums.Add(queenAlbum);
 
             var lzAlbum = new Album("Led Zeppelin III(remaster)", ledzeppelin);
-            lzAlbum.Songs.Add(new Song("Immigrant Song - Remaster", Genre.Rock, ledzeppelin));
-            lzAlbum.Songs.Add(new Song("Tangerine - Remaster", Genre.Rock, ledzeppelin));
+            lzAlbum.Songs.Add(new Song("Immigrant Song - Remaster", Genre.Rock, "Led Zeppelin"));
+            lzAlbum.Songs.Add(new Song("Tangerine - Remaster", Genre.Rock, "Led Zeppelin"));
             ledzeppelin.Albums.Add(lzAlbum);
 
             var lzAlbum2 = new Album("Physical Graffiti", ledzeppelin);
-            lzAlbum2.Songs.Add(new Song("Custard Pie - Remaster", Genre.Rock, ledzeppelin));
-            lzAlbum2.Songs.Add(new Song("Kashmir - Remaster", Genre.Rock, ledzeppelin));
+            lzAlbum2.Songs.Add(new Song("Custard Pie - Remaster", Genre.Rock, "Led Zeppelin"));
+            lzAlbum2.Songs.Add(new Song("Kashmir - Remaster", Genre.Rock, "Led Zeppelin"));
             ledzeppelin.Albums.Add(lzAlbum2);
 
             var lpAlbum = new Album("Hybrid Theory", linkinpark);
-            lpAlbum.Songs.Add(new Song("In the End", Genre.Rock, linkinpark));
-            lpAlbum.Songs.Add(new Song("Crawling", Genre.Rock, linkinpark));
+            lpAlbum.Songs.Add(new Song("In the End", Genre.Rock, "Linkin Park"));
+            lpAlbum.Songs.Add(new Song("Crawling", Genre.Rock, "Linkin Park"));
             linkinpark.Albums.Add(lpAlbum);
 
             return new List<Artist> { queen, ledzeppelin, linkinpark };
