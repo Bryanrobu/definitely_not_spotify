@@ -66,6 +66,7 @@
             label10 = new Label();
             addFriendSong = new Button();
             addFriendPlaylist = new Button();
+            addAlbum = new Button();
             SuspendLayout();
             // 
             // button1
@@ -444,11 +445,22 @@
             addFriendPlaylist.UseVisualStyleBackColor = true;
             addFriendPlaylist.Click += addFriendPlaylist_Click;
             // 
+            // addAlbum
+            // 
+            addAlbum.Location = new Point(786, 355);
+            addAlbum.Name = "addAlbum";
+            addAlbum.Size = new Size(143, 23);
+            addAlbum.TabIndex = 38;
+            addAlbum.Text = "Add album to playlist";
+            addAlbum.UseVisualStyleBackColor = true;
+            addAlbum.Click += addAlbum_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1539, 441);
+            Controls.Add(addAlbum);
             Controls.Add(addFriendPlaylist);
             Controls.Add(addFriendSong);
             Controls.Add(label10);
@@ -533,5 +545,6 @@
         private Label label10;
         private Button addFriendSong;
         private Button addFriendPlaylist;
+        private Button addAlbum;
     }
 }

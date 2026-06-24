@@ -406,5 +406,29 @@ namespace definitely_not_spotify
         {
             Song_SelectedIndexChanged(sender, e);
         }
+
+        private void addAlbum_Click(object sender, EventArgs e)
+        {
+            if (Albums.SelectedItem is Album album && Playlists.SelectedItem is Playlist myPlaylist)
+            {
+                foreach (var song in album.Songs)
+                {
+                    if (myPlaylist.GetSongs().Contains(song))
+                    {
+                        var result = MessageBox.Show(
+                            $"\"{song.Title}\" staat al in de playlist. Toch toevoegen?",
+                            "Dubbel nummer",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.No)
+                        {
+                            continue;
+                        }
+                    }
+                    myPlaylist.AddSong(song);
+                }
+                ShowPlaylistSongs(myPlaylist);
+            }
+        }
     }
 }
