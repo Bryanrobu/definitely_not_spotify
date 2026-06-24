@@ -1,4 +1,5 @@
 ﻿using definitely_not_spotify.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace definitely_not_spotify
 {
@@ -27,6 +28,8 @@ namespace definitely_not_spotify
             FillUsers();
             FillDiscover();
             FillPlaylists();
+            FillFriendRequests();
+            FillFriends();
             FillArtists();
             artists.SelectedIndexChanged += Artists_SelectedIndexChanged;
             Albums.SelectedIndexChanged += Albums_SelectedIndexChanged;
@@ -255,6 +258,123 @@ namespace definitely_not_spotify
             nowPlaying.Text = "Nothing is playing" + Environment.NewLine + "no artist";
         }
 
+        private void FillFriendRequests()
+        {
+            FriendRequests.Items.Clear();
+            FriendRequests.DisplayMember = "Username";
+            foreach (var u in user.FriendRequests)
+            {
+                FriendRequests.Items.Add(u);
+            }
+        }
+
+        private void FillFriends()
+        {
+            FriendsList.Items.Clear();
+            FriendsList.DisplayMember = "Username";
+            foreach (var u in user.Friends)
+            {
+                FriendsList.Items.Add(u);
+            }
+        }
+
+        private void FriendsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FriendPlaylists.Items.Clear();
+            FriendSongs.Items.Clear();
+            if (FriendsList.SelectedItem is User friend)
+            {
+                foreach (var p in friend.Playlists)
+                {
+                    FriendPlaylists.Items.Add(p);
+                }
+            }
+        }
+
+        private void FriendPlaylists_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FriendSongs.Items.Clear();
+            FriendSongs.DisplayMember = "Display";
+            if (FriendPlaylists.SelectedItem is Playlist playlist)
+            {
+                foreach (var s in playlist.GetSongs())
+                {
+                    FriendSongs.Items.Add(s);
+                }
+            }
+        }
+
+        private void AddFriend_Click(object sender, EventArgs e)
+        {
+            if (Users.SelectedItem is User target)
+            {
+                client.SendFriendRequest(target);
+            }
+        }
+
+        private void AcceptFriend_Click(object sender, EventArgs e)
+        {
+            if (FriendRequests.SelectedItem is User from)
+            {
+                client.AcceptFriendRequest(from);
+                FillFriendRequests();
+                FillFriends();
+            }
+        }
+
+        private void DeclineFriend_Click(object sender, EventArgs e)
+        {
+            if (FriendRequests.SelectedItem is User from)
+            {
+                client.DeclineFriendRequest(from);
+                FillFriendRequests();
+            }
+        }
+
+        private void addFriendSong_Click(object sender, EventArgs e)
+        {
+            if (FriendSongs.SelectedItem is Song song && Playlists.SelectedItem is Playlist myPlaylist)
+            {
+                if (myPlaylist.GetSongs().Contains(song))
+                {
+                    var result = MessageBox.Show(
+                        "Dit nummer staat al in de playlist. Toch toevoegen?",
+                        "Dubbel nummer",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+                myPlaylist.AddSong(song);
+                ShowPlaylistSongs(myPlaylist);
+            }
+        }
+
+        private void addFriendPlaylist_Click(object sender, EventArgs e)
+        {
+            if (FriendPlaylists.SelectedItem is Playlist friendPlaylist && Playlists.SelectedItem is Playlist myPlaylist)
+            {
+                foreach (var song in friendPlaylist.GetSongs())
+                {
+                    if (myPlaylist.GetSongs().Contains(song))
+                    {
+                        var result = MessageBox.Show(
+                            $"\"{song.Title}\" staat al in de playlist. Toch toevoegen?",
+                            "Dubbel nummer",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.No)
+                        {
+                            continue;
+                        }
+                    }
+                    myPlaylist.AddSong(song);
+                }
+                ShowPlaylistSongs(myPlaylist);
+                ShowPlaylistSongs(myPlaylist);
+            }
         private void Artists_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (artists.SelectedItem is Artist artist)
