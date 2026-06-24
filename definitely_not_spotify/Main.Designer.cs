@@ -72,9 +72,10 @@
             // 
             button1.Anchor = AnchorStyles.Bottom;
             button1.AutoSize = true;
-            button1.Location = new Point(408, 393);
+            button1.Location = new Point(430, 398);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(125, 60);
+            button1.Size = new Size(109, 45);
             button1.TabIndex = 0;
             button1.Text = "Play/pause";
             button1.UseVisualStyleBackColor = true;
@@ -84,9 +85,10 @@
             // 
             button2.Anchor = AnchorStyles.Bottom;
             button2.AutoSize = true;
-            button2.Location = new Point(523, 393);
+            button2.Location = new Point(545, 400);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(125, 60);
+            button2.Size = new Size(109, 45);
             button2.TabIndex = 1;
             button2.Text = "Skip";
             button2.UseVisualStyleBackColor = true;
@@ -96,9 +98,10 @@
             // 
             button3.Anchor = AnchorStyles.Bottom;
             button3.AutoSize = true;
-            button3.Location = new Point(293, 393);
+            button3.Location = new Point(315, 398);
+            button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
-            button3.Size = new Size(125, 60);
+            button3.Size = new Size(109, 45);
             button3.TabIndex = 2;
             button3.Text = "Previous";
             button3.UseVisualStyleBackColor = true;
@@ -108,10 +111,9 @@
             // 
             Playlists.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             Playlists.FormattingEnabled = true;
-            Playlists.Location = new Point(0, 60);
-            Playlists.Margin = new Padding(3, 4, 3, 4);
+            Playlists.Location = new Point(0, 45);
             Playlists.Name = "Playlists";
-            Playlists.Size = new Size(156, 404);
+            Playlists.Size = new Size(137, 304);
             Playlists.TabIndex = 3;
             Playlists.SelectedIndexChanged += Playlists_SelectedIndexChanged;
             // 
@@ -119,96 +121,90 @@
             // 
             Numbers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             Numbers.FormattingEnabled = true;
-            Numbers.Location = new Point(163, 60);
-            Numbers.Margin = new Padding(3, 4, 3, 4);
+            Numbers.Location = new Point(143, 45);
             Numbers.Name = "Numbers";
-            Numbers.Size = new Size(163, 404);
+            Numbers.Size = new Size(143, 304);
             Numbers.TabIndex = 4;
             // 
             // Users
             // 
             Users.Anchor = AnchorStyles.Left;
             Users.FormattingEnabled = true;
-            Users.Location = new Point(1321, 57);
-            Users.Margin = new Padding(3, 4, 3, 4);
+            Users.Location = new Point(1156, 45);
             Users.Name = "Users";
-            Users.Size = new Size(137, 204);
+            Users.Size = new Size(120, 154);
             Users.TabIndex = 5;
             Users.SelectedIndexChanged += Users_SelectedIndexChanged;
             // 
             // search
             // 
-            search.Location = new Point(334, 20);
-            search.Margin = new Padding(3, 4, 3, 4);
+            search.Location = new Point(292, 15);
             search.Name = "search";
             search.PlaceholderText = "Input search ";
-            search.Size = new Size(437, 27);
+            search.Size = new Size(383, 23);
             search.TabIndex = 6;
             search.KeyUp += search_KeyUp;
             // 
             // Discover
             // 
             Discover.FormattingEnabled = true;
-            Discover.Location = new Point(334, 59);
-            Discover.Margin = new Padding(3, 4, 3, 4);
+            Discover.Location = new Point(292, 44);
             Discover.Name = "Discover";
-            Discover.Size = new Size(437, 404);
+            Discover.Size = new Size(383, 304);
             Discover.TabIndex = 7;
             // 
             // nowPlaying
             // 
             nowPlaying.BackColor = SystemColors.Window;
             nowPlaying.Enabled = false;
-            nowPlaying.Location = new Point(14, 524);
-            nowPlaying.Margin = new Padding(3, 4, 3, 4);
+            nowPlaying.Location = new Point(12, 393);
             nowPlaying.Multiline = true;
             nowPlaying.Name = "nowPlaying";
             nowPlaying.ReadOnly = true;
-            nowPlaying.Size = new Size(205, 59);
+            nowPlaying.Size = new Size(180, 45);
             nowPlaying.TabIndex = 8;
             // 
             // currentUser
             // 
             currentUser.AutoSize = true;
-            currentUser.Location = new Point(1321, 524);
+            currentUser.Location = new Point(1156, 393);
             currentUser.Name = "currentUser";
-            currentUser.Size = new Size(86, 20);
+            currentUser.Size = new Size(70, 15);
             currentUser.TabIndex = 9;
             currentUser.Text = "current user";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(0, 36);
+            label1.Location = new Point(0, 27);
             label1.Name = "label1";
-            label1.Size = new Size(61, 20);
+            label1.Size = new Size(49, 15);
             label1.TabIndex = 10;
             label1.Text = "Playlists";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(163, 36);
+            label2.Location = new Point(143, 27);
             label2.Name = "label2";
-            label2.Size = new Size(69, 20);
+            label2.Size = new Size(56, 15);
             label2.TabIndex = 11;
             label2.Text = "Numbers";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(1321, 31);
+            label3.Location = new Point(1156, 23);
             label3.Name = "label3";
-            label3.Size = new Size(44, 20);
+            label3.Size = new Size(35, 15);
             label3.TabIndex = 12;
             label3.Text = "Users";
             // 
             // logout
             // 
-            logout.Location = new Point(1321, 553);
-            logout.Margin = new Padding(3, 4, 3, 4);
+            logout.Location = new Point(1156, 415);
             logout.Name = "logout";
-            logout.Size = new Size(86, 31);
+            logout.Size = new Size(75, 23);
             logout.TabIndex = 13;
             logout.Text = "Log out";
             logout.UseVisualStyleBackColor = true;
@@ -216,10 +212,9 @@
             // 
             // add_playlist
             // 
-            add_playlist.Location = new Point(0, 473);
-            add_playlist.Margin = new Padding(3, 4, 3, 4);
+            add_playlist.Location = new Point(0, 355);
             add_playlist.Name = "add_playlist";
-            add_playlist.Size = new Size(157, 31);
+            add_playlist.Size = new Size(137, 23);
             add_playlist.TabIndex = 14;
             add_playlist.Text = "Add playlist";
             add_playlist.UseVisualStyleBackColor = true;
@@ -227,10 +222,9 @@
             // 
             // delete_playlist
             // 
-            delete_playlist.Location = new Point(163, 473);
-            delete_playlist.Margin = new Padding(3, 4, 3, 4);
+            delete_playlist.Location = new Point(143, 355);
             delete_playlist.Name = "delete_playlist";
-            delete_playlist.Size = new Size(163, 31);
+            delete_playlist.Size = new Size(143, 23);
             delete_playlist.TabIndex = 15;
             delete_playlist.Text = "Delete playlist";
             delete_playlist.UseVisualStyleBackColor = true;
@@ -238,10 +232,9 @@
             // 
             // addSong
             // 
-            addSong.Location = new Point(334, 472);
-            addSong.Margin = new Padding(3, 4, 3, 4);
+            addSong.Location = new Point(292, 354);
             addSong.Name = "addSong";
-            addSong.Size = new Size(163, 31);
+            addSong.Size = new Size(143, 23);
             addSong.TabIndex = 16;
             addSong.Text = "Add to playlist";
             addSong.UseVisualStyleBackColor = true;
@@ -249,10 +242,9 @@
             // 
             // removeSong
             // 
-            removeSong.Location = new Point(502, 473);
-            removeSong.Margin = new Padding(3, 4, 3, 4);
+            removeSong.Location = new Point(439, 355);
             removeSong.Name = "removeSong";
-            removeSong.Size = new Size(163, 31);
+            removeSong.Size = new Size(143, 23);
             removeSong.TabIndex = 17;
             removeSong.Text = "Remove from playlist";
             removeSong.UseVisualStyleBackColor = true;
@@ -260,9 +252,10 @@
             // 
             // stopButton
             // 
-            stopButton.Location = new Point(635, 393);
+            stopButton.Location = new Point(660, 400);
+            stopButton.Margin = new Padding(3, 2, 3, 2);
             stopButton.Name = "stopButton";
-            stopButton.Size = new Size(46, 60);
+            stopButton.Size = new Size(62, 41);
             stopButton.TabIndex = 18;
             stopButton.Text = "Stop";
             stopButton.UseVisualStyleBackColor = true;
@@ -271,57 +264,54 @@
             // artists
             // 
             artists.FormattingEnabled = true;
-            artists.Location = new Point(778, 60);
-            artists.Margin = new Padding(3, 4, 3, 4);
+            artists.Location = new Point(681, 45);
             artists.Name = "artists";
-            artists.Size = new Size(130, 404);
+            artists.Size = new Size(114, 304);
             artists.TabIndex = 19;
             artists.SelectedIndexChanged += Artists_SelectedIndexChanged;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(778, 31);
+            label4.Location = new Point(681, 23);
             label4.Name = "label4";
-            label4.Size = new Size(50, 20);
+            label4.Size = new Size(40, 15);
             label4.TabIndex = 20;
             label4.Text = "Artists";
             // 
             // Albums
             // 
             Albums.FormattingEnabled = true;
-            Albums.Location = new Point(915, 59);
-            Albums.Margin = new Padding(3, 4, 3, 4);
+            Albums.Location = new Point(801, 44);
             Albums.Name = "Albums";
-            Albums.Size = new Size(130, 404);
+            Albums.Size = new Size(114, 304);
             Albums.TabIndex = 21;
             Albums.SelectedIndexChanged += Albums_SelectedIndexChanged;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(915, 31);
+            label5.Location = new Point(801, 23);
             label5.Name = "label5";
-            label5.Size = new Size(59, 20);
+            label5.Size = new Size(48, 15);
             label5.TabIndex = 22;
             label5.Text = "Albums";
             // 
             // Songs
             // 
             Songs.FormattingEnabled = true;
-            Songs.Location = new Point(1053, 59);
-            Songs.Margin = new Padding(3, 4, 3, 4);
+            Songs.Location = new Point(921, 44);
             Songs.Name = "Songs";
-            Songs.Size = new Size(261, 404);
+            Songs.Size = new Size(229, 304);
             Songs.TabIndex = 23;
             Songs.SelectedIndexChanged += Songs_SelectedIndexChanged;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(1053, 31);
+            label6.Location = new Point(921, 23);
             label6.Name = "label6";
-            label6.Size = new Size(69, 20);
+            label6.Size = new Size(56, 15);
             label6.TabIndex = 24;
             label6.Text = "Numbers";
             // 
@@ -329,27 +319,25 @@
             // 
             FriendRequests.Anchor = AnchorStyles.Left;
             FriendRequests.FormattingEnabled = true;
-            FriendRequests.Location = new Point(1321, 300);
-            FriendRequests.Margin = new Padding(3, 4, 3, 4);
+            FriendRequests.Location = new Point(1156, 225);
             FriendRequests.Name = "FriendRequests";
-            FriendRequests.Size = new Size(137, 164);
+            FriendRequests.Size = new Size(120, 124);
             FriendRequests.TabIndex = 25;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(1321, 276);
+            label7.Location = new Point(1156, 207);
             label7.Name = "label7";
-            label7.Size = new Size(109, 20);
+            label7.Size = new Size(87, 15);
             label7.TabIndex = 26;
             label7.Text = "Friend requests";
             // 
             // AddFriend
             // 
-            AddFriend.Location = new Point(1321, 472);
-            AddFriend.Margin = new Padding(3, 4, 3, 4);
+            AddFriend.Location = new Point(1156, 354);
             AddFriend.Name = "AddFriend";
-            AddFriend.Size = new Size(105, 31);
+            AddFriend.Size = new Size(92, 23);
             AddFriend.TabIndex = 27;
             AddFriend.Text = "Add friend";
             AddFriend.UseVisualStyleBackColor = true;
@@ -357,10 +345,9 @@
             // 
             // AcceptFriend
             // 
-            AcceptFriend.Location = new Point(1433, 472);
-            AcceptFriend.Margin = new Padding(3, 4, 3, 4);
+            AcceptFriend.Location = new Point(1254, 354);
             AcceptFriend.Name = "AcceptFriend";
-            AcceptFriend.Size = new Size(105, 31);
+            AcceptFriend.Size = new Size(92, 23);
             AcceptFriend.TabIndex = 28;
             AcceptFriend.Text = "Accept friend";
             AcceptFriend.UseVisualStyleBackColor = true;
@@ -368,10 +355,9 @@
             // 
             // DeclineFriend
             // 
-            DeclineFriend.Location = new Point(1433, 511);
-            DeclineFriend.Margin = new Padding(3, 4, 3, 4);
+            DeclineFriend.Location = new Point(1254, 383);
             DeclineFriend.Name = "DeclineFriend";
-            DeclineFriend.Size = new Size(105, 31);
+            DeclineFriend.Size = new Size(92, 23);
             DeclineFriend.TabIndex = 29;
             DeclineFriend.Text = "Decline friend";
             DeclineFriend.UseVisualStyleBackColor = true;
@@ -381,16 +367,17 @@
             // 
             FriendsList.Anchor = AnchorStyles.Left;
             FriendsList.FormattingEnabled = true;
-            FriendsList.Location = new Point(1282, 44);
+            FriendsList.Location = new Point(1295, 45);
+            FriendsList.Margin = new Padding(3, 2, 3, 2);
             FriendsList.Name = "FriendsList";
-            FriendsList.Size = new Size(120, 154);
+            FriendsList.Size = new Size(106, 154);
             FriendsList.TabIndex = 30;
             FriendsList.SelectedIndexChanged += FriendsList_SelectedIndexChanged;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(1282, 27);
+            label8.Location = new Point(1295, 23);
             label8.Name = "label8";
             label8.Size = new Size(45, 15);
             label8.TabIndex = 31;
@@ -400,16 +387,17 @@
             // 
             FriendPlaylists.Anchor = AnchorStyles.Left;
             FriendPlaylists.FormattingEnabled = true;
-            FriendPlaylists.Location = new Point(1282, 225);
+            FriendPlaylists.Location = new Point(1295, 225);
+            FriendPlaylists.Margin = new Padding(3, 2, 3, 2);
             FriendPlaylists.Name = "FriendPlaylists";
-            FriendPlaylists.Size = new Size(120, 124);
+            FriendPlaylists.Size = new Size(106, 124);
             FriendPlaylists.TabIndex = 32;
             FriendPlaylists.SelectedIndexChanged += FriendPlaylists_SelectedIndexChanged;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(1282, 207);
+            label9.Location = new Point(1295, 207);
             label9.Name = "label9";
             label9.Size = new Size(90, 15);
             label9.TabIndex = 33;
@@ -419,15 +407,16 @@
             // 
             FriendSongs.Anchor = AnchorStyles.Left;
             FriendSongs.FormattingEnabled = true;
-            FriendSongs.Location = new Point(1408, 45);
+            FriendSongs.Location = new Point(1407, 45);
+            FriendSongs.Margin = new Padding(3, 2, 3, 2);
             FriendSongs.Name = "FriendSongs";
-            FriendSongs.Size = new Size(120, 304);
+            FriendSongs.Size = new Size(106, 304);
             FriendSongs.TabIndex = 34;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(1408, 27);
+            label10.Location = new Point(1407, 23);
             label10.Name = "label10";
             label10.Size = new Size(80, 15);
             label10.TabIndex = 35;
@@ -435,9 +424,10 @@
             // 
             // addFriendSong
             // 
-            addFriendSong.Location = new Point(1397, 354);
+            addFriendSong.Location = new Point(1398, 353);
+            addFriendSong.Margin = new Padding(3, 2, 3, 2);
             addFriendSong.Name = "addFriendSong";
-            addFriendSong.Size = new Size(131, 23);
+            addFriendSong.Size = new Size(139, 24);
             addFriendSong.TabIndex = 36;
             addFriendSong.Text = "Add song to playlist";
             addFriendSong.UseVisualStyleBackColor = true;
@@ -445,9 +435,10 @@
             // 
             // addFriendPlaylist
             // 
-            addFriendPlaylist.Location = new Point(1397, 383);
+            addFriendPlaylist.Location = new Point(1398, 381);
+            addFriendPlaylist.Margin = new Padding(3, 2, 3, 2);
             addFriendPlaylist.Name = "addFriendPlaylist";
-            addFriendPlaylist.Size = new Size(131, 23);
+            addFriendPlaylist.Size = new Size(139, 26);
             addFriendPlaylist.TabIndex = 37;
             addFriendPlaylist.Text = "Add playlist to playlist";
             addFriendPlaylist.UseVisualStyleBackColor = true;
@@ -455,9 +446,9 @@
             // 
             // Main
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1592, 450);
+            ClientSize = new Size(1539, 441);
             Controls.Add(addFriendPlaylist);
             Controls.Add(addFriendSong);
             Controls.Add(label10);
@@ -496,7 +487,6 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "Main";
             Text = "Main";
             ResumeLayout(false);

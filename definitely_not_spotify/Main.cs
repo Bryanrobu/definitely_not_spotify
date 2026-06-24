@@ -31,8 +31,6 @@ namespace definitely_not_spotify
             FillFriendRequests();
             FillFriends();
             FillArtists();
-            artists.SelectedIndexChanged += Artists_SelectedIndexChanged;
-            Albums.SelectedIndexChanged += Albums_SelectedIndexChanged;
         }
 
         private void Song_SelectedIndexChanged(object sender, EventArgs e)
@@ -42,8 +40,9 @@ namespace definitely_not_spotify
                 selectedSong = song;
                 activeList = list;
 
-                if (list == Discover) Numbers.ClearSelected();
-                else if (list == Numbers) Discover.ClearSelected();
+                if (list != Discover) Discover.ClearSelected();
+                if (list != Numbers) Numbers.ClearSelected();
+                if (list != Songs) Songs.ClearSelected();
             }
         }
 
@@ -223,9 +222,9 @@ namespace definitely_not_spotify
 
         private void addSong_Click(object sender, EventArgs e)
         {
-            if (Discover.SelectedItem is Song song && Playlists.SelectedItem is Playlist playlist)
+            if (selectedSong != null && Playlists.SelectedItem is Playlist playlist)
             {
-                if (playlist.GetSongs().Contains(song))
+                if (playlist.GetSongs().Contains(selectedSong))
                 {
                     var result = MessageBox.Show(
                         "Dit nummer staat al in de playlist. Toch toevoegen?",
@@ -237,7 +236,7 @@ namespace definitely_not_spotify
                         return;
                     }
                 }
-                playlist.AddSong(song);
+                playlist.AddSong(selectedSong);
                 ShowPlaylistSongs(playlist);
             }
         }
@@ -375,6 +374,7 @@ namespace definitely_not_spotify
                 ShowPlaylistSongs(myPlaylist);
                 ShowPlaylistSongs(myPlaylist);
             }
+        }
         private void Artists_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (artists.SelectedItem is Artist artist)
@@ -404,7 +404,7 @@ namespace definitely_not_spotify
 
         private void Songs_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Song_SelectedIndexChanged(sender, e);
         }
     }
 }
