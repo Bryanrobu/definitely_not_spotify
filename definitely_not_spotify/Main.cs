@@ -84,7 +84,7 @@ namespace definitely_not_spotify
             }
 
             string status = isPlaying ? "Playing" : "Paused";
-            nowPlaying.Text = status + ": " + currentSong.Title + Environment.NewLine + currentSong.Artists;
+            nowPlaying.Text = status + ": " + currentSong.Title + Environment.NewLine + currentSong.Artists + Environment.NewLine + currentSong.Genre;
         }
 
         private void skip_Click(object sender, EventArgs e)
@@ -134,7 +134,7 @@ namespace definitely_not_spotify
 
         private void search_KeyUp(object sender, KeyEventArgs e)
         {
-
+            Fill(Discover, client.Search(search.Text), "Display");
         }
         private void FillUsers()
         {

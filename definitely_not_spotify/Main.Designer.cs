@@ -158,11 +158,11 @@
             // 
             nowPlaying.BackColor = SystemColors.Window;
             nowPlaying.Enabled = false;
-            nowPlaying.Location = new Point(12, 393);
+            nowPlaying.Location = new Point(12, 384);
             nowPlaying.Multiline = true;
             nowPlaying.Name = "nowPlaying";
             nowPlaying.ReadOnly = true;
-            nowPlaying.Size = new Size(180, 45);
+            nowPlaying.Size = new Size(274, 54);
             nowPlaying.TabIndex = 8;
             // 
             // currentUser
