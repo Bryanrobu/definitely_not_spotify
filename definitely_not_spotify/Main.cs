@@ -30,6 +30,9 @@ namespace definitely_not_spotify
             FillPlaylists();
             FillFriendRequests();
             FillFriends();
+            FillArtists();
+            artists.SelectedIndexChanged += Artists_SelectedIndexChanged;
+            Albums.SelectedIndexChanged += Albums_SelectedIndexChanged;
         }
 
         private void Song_SelectedIndexChanged(object sender, EventArgs e)
@@ -160,6 +163,16 @@ namespace definitely_not_spotify
             foreach (var playlist in user.Playlists)
             {
                 Playlists.Items.Add(playlist);
+            }
+        }
+
+        private void FillArtists()
+        {
+            artists.Items.Clear();
+            artists.DisplayMember = "Name";
+            foreach (var artist in client.Artists)
+            {
+                artists.Items.Add(artist);
             }
         }
 
@@ -362,6 +375,36 @@ namespace definitely_not_spotify
                 ShowPlaylistSongs(myPlaylist);
                 ShowPlaylistSongs(myPlaylist);
             }
+        private void Artists_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (artists.SelectedItem is Artist artist)
+            {
+                Albums.Items.Clear();
+                Albums.DisplayMember = "Title";
+                foreach (var album in artist.Albums)
+                {
+                    Albums.Items.Add(album);
+                }
+                Songs.Items.Clear();
+            }
+        }
+
+        private void Albums_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Albums.SelectedItem is Album album)
+            {
+                Songs.Items.Clear();
+                Songs.DisplayMember = "Display";
+                foreach (var song in album.Songs)
+                {
+                    Songs.Items.Add(song);
+                }
+            }
+        }
+
+        private void Songs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

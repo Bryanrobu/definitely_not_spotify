@@ -7,6 +7,7 @@ namespace definitely_not_spotify
         public List<User> Users { get; }
         public User CurrentUser { get; private set; }
         public List<Song> Songs { get; }
+        public List<Artist> Artists { get; }
 
         public List<Playlist> playlists { get; }
 
@@ -15,8 +16,10 @@ namespace definitely_not_spotify
             Users = new List<User>();
             Songs = new List<Song>();
             playlists = new List<Playlist>();
+            Artists = new List<Artist>();
             Songs.AddRange(TestData.GetSongs());
             Users.AddRange(TestData.GetUsers());
+            Artists.AddRange(TestData.GetArtists());
         }
 
         public User CreateUser(string username)

@@ -17,10 +17,15 @@ namespace definitely_not_spotify.Models
             Artists = artists;
         }
 
+        public Song(string title, Genre genre, Artist artist)
+        {
+            Title = title;
+            Genre = genre;
+            Artists = artist.Name;
+        }
+
         public string GetArtists() => Artists;
-
         public string GetTitle() => Title;
-
         public Genre GetGenre() => Genre;
     }
 }
