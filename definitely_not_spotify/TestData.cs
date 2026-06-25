@@ -12,6 +12,7 @@ namespace definitely_not_spotify
             var queen = new Artist("Queen");
             var ledzeppelin = new Artist("Led Zeppelin");
             var linkinpark = new Artist("Linkin Park");
+            var tameimpala = new Artist("Tame Impala");
 
             var queenAlbum = new Album("A Night at the Opera", queen);
             queenAlbum.Songs.Add(new Song("Bohemian Rhapsody", Genre.Rock, "Queen"));
@@ -33,7 +34,21 @@ namespace definitely_not_spotify
             lpAlbum.Songs.Add(new Song("Crawling", Genre.Rock, "Linkin Park"));
             linkinpark.Albums.Add(lpAlbum);
 
-            return new List<Artist> { queen, ledzeppelin, linkinpark };
+            tameimpala.Songs.Add(new Song("Let It Happen", Genre.Pop, "tameimpala"));
+
+            ledzeppelin.Songs.Add(new Song("Stairway to Heaven", Genre.Rock, "Led Zeppelin"));
+            ledzeppelin.Songs.Add(new Song("Immigrant Song - Remaster", Genre.Rock, "Led Zeppelin"));
+            ledzeppelin.Songs.Add(new Song("Tangerine - Remaster", Genre.Rock, "Led Zeppelin"));
+            ledzeppelin.Songs.Add(new Song("Custard Pie - Remaster", Genre.Rock, "Led Zeppelin"));
+            ledzeppelin.Songs.Add(new Song("Kashmir - Remaster", Genre.Rock, "Led Zeppelin"));
+
+            queen.Songs.Add(new Song("Radio GaGa", Genre.Rock, "Queen"));
+            queen.Songs.Add(new Song("Bohemian Rhapsody", Genre.Rock, "Queen"));
+            queen.Songs.Add(new Song("Love of My Life", Genre.Rock, "Queen"));
+
+
+
+            return new List<Artist> {queen, ledzeppelin, linkinpark, tameimpala};
 
         }
 

@@ -299,7 +299,13 @@ namespace definitely_not_spotify
                 {
                     Albums.Items.Add(album);
                 }
+
                 Songs.Items.Clear();
+                Songs.DisplayMember = "Display";
+                foreach (var song in artist.Songs)
+                {
+                    Songs.Items.Add(song);
+                }
             }
         }
 
