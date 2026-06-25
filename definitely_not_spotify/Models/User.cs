@@ -14,7 +14,5 @@ namespace definitely_not_spotify.Models
             Friends = new List<User>();
             FriendRequests = new List<User>();
         }
-
-        public override string ToString() => Username;
     }
 }

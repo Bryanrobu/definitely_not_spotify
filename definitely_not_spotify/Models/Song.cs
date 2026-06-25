@@ -14,14 +14,5 @@ namespace definitely_not_spotify.Models
             Genre = genre;
             Artists = artists;
         }
-
-        public Song(string title, Genre genre, Artist artist)
-        {
-            Title = title;
-            Genre = genre;
-            Artists = artist.Name;
-        }
-
-        public override string ToString() => $"{Title} - {Artists}";
     }
 }

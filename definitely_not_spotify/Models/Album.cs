@@ -12,9 +12,5 @@ namespace definitely_not_spotify.Models
             Artist = artist;
             Songs = new List<Song>();
         }
-
-        public void AddSong(Song s) => Songs.Add(s);
-
-        public override string ToString() => Title;
     }
 }

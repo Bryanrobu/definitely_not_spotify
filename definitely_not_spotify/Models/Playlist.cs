@@ -14,7 +14,7 @@ namespace definitely_not_spotify.Models
         }
 
         public void AddSong(Song s) => Songs.Add(s);
-        public void RemoveSong(Song s) => Songs.Remove(s);
+        public void RemoveSong(Song s) => Songs.Remove(s);  
 
         public override string ToString() => Name;
     }
