@@ -178,6 +178,7 @@ namespace definitely_not_spotify
                     }
 
                     FillPlaylists();
+                    FillTargetPlaylists();
                 }
             }
         }
